@@ -18,11 +18,7 @@ const submitApplication = async (req, res) => {
     res.status(201).json({ message: 'Application submitted successfully!', applicant: newApplicant });
   } catch (error) {
     console.error('Error submitting application:', error);
-    if (error.code === 11000) {
-      res.status(400).json({ message: 'Email already exists. Please use a different email.' });
-    } else {
-      res.status(500).json({ message: 'Server error. Please try again later.' });
-    }
+    res.status(500).json({ message: 'Server error. Please try again later.' });
   }
 };
 
